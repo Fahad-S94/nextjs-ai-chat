@@ -18,8 +18,8 @@ export default function Chat() {
   });
 
   return (
-    <div className="max-w-lg mx-auto flex p-6 bg-gray-100 rounded-lg shadow-lg">
-      <form onSubmit={handleSubmit} className="w-full mb-4 ">
+    <div className="max-w-lg mx-auto flex flex-col p-6 bg-gray-900 rounded-lg shadow-lg">
+      <form onSubmit={handleSubmit} className="w-full mb-4 justify-between">
         <label className="mb-2 w-full">Say something...</label>
         <div className="w-full flex items-center justify-between">
           <input
@@ -40,16 +40,19 @@ export default function Chat() {
         {messages.map((m, index) => (
           <>
             {m.role === 'user' ? (
-              <li key={index} className="">
-                <div className="">
-                  <p className="">{m.content}</p>
+              <li key={index} className="mb-4">
+                <div className="bg-blue-100 rounded-lg p-3 shadow-md">
+                  <p className="text-blue-900">
+                    <span>You: </span>
+                    {m.content}
+                  </p>
                 </div>
               </li>
             ) : (
-              <li key={index} className="">
-                <div className="">
-                  <p className="">
-                    <span className="">Answer: </span>
+              <li key={index} className="mb-4">
+                <div className="bg-green-100 rounded-lg p-3 shadow-md">
+                  <p className="text-green-900">
+                    <span className="font-bold">Answer: </span>
                     {m.content}
                   </p>
                 </div>
